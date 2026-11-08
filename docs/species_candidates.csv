@@ -1,0 +1,38 @@
+priority,scientific_name,source_name_variants,local_or_common_names,family,tripura_citations_FC,source,leaf_distinctiveness,watch_out_lookalikes
+A,Ocimum tenuiflorum,Ocimum sanctum (same species),Tulsi / Dola tulsi / Kala tulsi,Lamiaceae,66+78,Bishnupriya Manipuri study (Tripura),medium,Other Ocimum spp.; merge sanctum+tenuiflorum into ONE class
+A,Azadirachta indica,,Neem,Meliaceae,68,Bishnupriya Manipuri study (Tripura),high,
+A,Centella asiatica,,Thankuni / Pirihou,Apiaceae,89,Bishnupriya Manipuri study (Tripura),high,Hydrocotyle spp.
+A,Eclipta prostrata,Eclipta alba,Bhringaraj / Kehuriya / Kesuti,Asteraceae,93,Bishnupriya Manipuri study (Tripura),medium,Tridax procumbens (study calls Tridax 'Bhringaraj' - check with mentor)
+A,Mentha arvensis,Mentha x piperita also listed,Pudina / Mint,Lamiaceae,55+62,Bishnupriya Manipuri study (Tripura),medium,Other Mentha spp. - treat 'Mentha' as one class if needed
+A,Syzygium cumini,,Jamun / Jam,Myrtaceae,57,Bishnupriya Manipuri study (Tripura),high,
+A,Curcuma longa,,Turmeric / Holud / Andi,Zingiberaceae,45,Bishnupriya Manipuri study (Tripura),medium,Other Curcuma / ginger leaves
+A,Aloe vera,Aloe barbadensis,Aloe / Ghritakumari,Asphodelaceae,22,Bishnupriya Manipuri study (Tripura),high,
+A,Phyllanthus emblica,,Amla / Angala,Phyllanthaceae,37,Bishnupriya Manipuri study (Tripura),medium,Phyllanthus niruri / acidus
+A,Psidium guajava,,Guava / Pongitol,Myrtaceae,35,Bishnupriya Manipuri study (Tripura),high,
+A,Piper betle,,Betel / Pan,Piperaceae,29,Bishnupriya Manipuri study (Tripura),medium,Heart-shaped leaves: Piper longum, Mikania cordata
+A,Piper longum,,Pippali / Long pepper,Piperaceae,not in study,Mentor's architecture figure,medium,Piper betle
+A,Mimosa pudica,,Lajjalu / Satyamara,Fabaceae,28,Bishnupriya Manipuri study (Tripura),high,
+A,Justicia adhatoda,Adhatoda vasica,Vasaka / Basak,Acanthaceae,18,Bishnupriya Manipuri study (Tripura),high,
+A,Andrographis paniculata,,Kalmegh / Chirata,Acanthaceae,7,Bishnupriya Manipuri study (Tripura),medium,Other Acanthaceae herbs
+A,Aegle marmelos,,Bael / Bel,Rutaceae,4,Bishnupriya Manipuri study (Tripura),high,Trifoliate: Citrus seedlings
+A,Nyctanthes arbor-tristis,,Shephali / Singarei,Oleaceae,19,Bishnupriya Manipuri study (Tripura),high,
+A,Kalanchoe pinnata,Bryophyllum pinnatum,Patharkuchi / Kapar pata,Crassulaceae,33,Bishnupriya Manipuri study (Tripura),high,
+A,Boerhavia diffusa,,Punarnava,Nyctaginaceae,19,Bishnupriya Manipuri study (Tripura),low,Small-leaved weeds
+A,Mikania cordata,,Assam lata / Refugee lota,Asteraceae,45,Bishnupriya Manipuri study (Tripura),medium,Piper betle (heart-shaped leaves)
+A,Hibiscus rosa-sinensis,,Joba / Hibiscus,Malvaceae,21,Bishnupriya Manipuri study (Tripura),high,
+A,Catharanthus roseus,,Nayantara / Kontol,Apocynaceae,5,Bishnupriya Manipuri study (Tripura),high,
+A,Houttuynia cordata,,Tokpanikong / Fish mint,Saururaceae,17,Bishnupriya Manipuri study (Tripura),high,
+A,Persicaria odorata,Polygonum odoratum,Fhakpoi / Vietnamese coriander,Polygonaceae,124,Bishnupriya Manipuri study (Tripura),high,
+A,Costus pictus,,Kempajol / Insulin plant type,Costaceae,56,Bishnupriya Manipuri study (Tripura),high,Costus igneus
+B,Clitoria ternatea,,Aparajita,Fabaceae,37,Bishnupriya Manipuri study (Tripura),medium,
+B,Ocimum gratissimum,,Ram tulsi,Lamiaceae,49,Bishnupriya Manipuri study (Tripura),medium,Ocimum tenuiflorum
+B,Phyllanthus niruri,,Bhumyamalaki,Phyllanthaceae,5,Bishnupriya Manipuri study (Tripura),low,Phyllanthus emblica
+B,Hygrophila auriculata,,Kulekhawra,Acanthaceae,12,Bishnupriya Manipuri study (Tripura),medium,
+B,Morinda citrifolia,,Noni,Rubiaceae,8,Bishnupriya Manipuri study (Tripura),high,
+B,Scoparia dulcis,,Jongoli,Plantaginaceae,7,Bishnupriya Manipuri study (Tripura),low,
+B,Leucas aspera,,Dronapushpi,Lamiaceae,1,Bishnupriya Manipuri study (Tripura),medium,
+B,Cynodon dactylon,,Durba,Poaceae,26,Bishnupriya Manipuri study (Tripura),low,Grasses
+B,Coccinia grandis,,Telakuchi,Cucurbitaceae,2,Bishnupriya Manipuri study (Tripura),medium,
+B,Senna alata,,Dadur pata,Fabaceae,2,Bishnupriya Manipuri study (Tripura),medium,
+B,Tridax procumbens,,Tridax / Tridhara,Asteraceae,6,Bishnupriya Manipuri study (Tripura),medium,Eclipta prostrata (useful as a hard negative)
+B,Ziziphus mauritiana,,Boroi / Borei,Rhamnaceae,18,Bishnupriya Manipuri study (Tripura),high,

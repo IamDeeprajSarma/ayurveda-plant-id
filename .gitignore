@@ -1,0 +1,33 @@
+# data and models: too big for Git, share through Google Drive / Kaggle
+data/
+models/
+reports/
+processed.zip
+results.zip
+*.pt
+*.pth
+*.onnx
+*_folders.txt
+backend/media/
+**/media/
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+.env
+db.sqlite3
+*.sqlite3
+
+# Node / React
+node_modules/
+dist/
+build/
+.vite/
+
+# OS / editor
+.DS_Store
+.idea/
+.vscode/
+*.ipynb_checkpoints

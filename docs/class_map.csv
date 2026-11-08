@@ -1,0 +1,39 @@
+class_id,display_name,source,folder_match
+tulsi,Tulsi (Ocimum tenuiflorum),medicinal_leaf,Ocimum Tenuiflorum
+neem,Neem (Azadirachta indica),med117,Azadirachta indica
+neem,Neem (Azadirachta indica),medicinal_leaf,Azadirachta Indica
+centella,Centella / Thankuni (Centella asiatica),med117,Centella asiatica
+eclipta,Bhringaraj (Eclipta prostrata),med117,Eclipta prostrata
+mentha,Mint (Mentha spp.),med117,Mentha arvensis
+mentha,Mint (Mentha spp.),medicinal_leaf,Mentha (Mint)
+jamun,Jamun (Syzygium cumini),med117,Syzygium Cumini
+jamun,Jamun (Syzygium cumini),medicinal_leaf,Syzygium Cumini
+aloe_vera,Aloe vera,med117,Aloe vera
+justicia,Vasaka (Justicia adhatoda),med117,Justicia adhatoda
+andrographis,Kalmegh (Andrographis paniculata),med117,Andrographis paniculata
+aegle,Bael (Aegle marmelos),med117,Aegle marmelos
+kalanchoe,Patharkuchi (Kalanchoe pinnata),med117,Kalanchoe pinnata
+boerhavia,Punarnava (Boerhavia diffusa),med117,Boerhavia diffusa
+hibiscus,Hibiscus (Hibiscus rosa-sinensis),med117,Hibiscus rosa
+hibiscus,Hibiscus (Hibiscus rosa-sinensis),medicinal_leaf,Hibiscus Rosa
+catharanthus,Nayantara (Catharanthus roseus),med117,Catharanthus roseus
+houttuynia,Fish mint (Houttuynia cordata),med117,Houttuynia cordata
+clitoria,Aparajita (Clitoria ternatea),med117,Clitoria ternatea
+hygrophila,Hygrophila auriculata,med117,Hygrophila auriculata
+leucas,Dronapushpi (Leucas aspera),med117,Leucas aspera
+guava,Guava (Psidium guajava),medicinal_leaf,Psidium Guajava
+betel,Betel (Piper betle),medicinal_leaf,Piper Betle
+nyctanthes,Shephali (Nyctanthes arbor-tristis),medicinal_leaf,Nyctanthes
+bacopa,Brahmi (Bacopa monnieri),med117,Bacopa monnieri
+tinospora,Guduchi (Tinospora cordifolia),med117,Tinospora Cordifolia
+vitex,Nirgundi (Vitex negundo),med117,Vitex Negundo
+gymnema,Gurmar (Gymnema sylvestre),med117,Gymnema sylvestre
+clerodendrum,Clerodendrum colebrookianum,med117,Clerodendrum colebrookianum
+haritaki,Haritaki (Terminalia chebula),med117,Terminalia Chebula
+eryngium,Culantro (Eryngium foetidum),med117,Eryngium foetidum
+euphorbia,Indian spurge tree (Euphorbia neriifolia),med117,Euphorbia neriifolia
+cissus,Hadjod (Cissus quadrangularis),med117,Cissus quadrangularis
+# Pending - add once the data exists (source 'inat' = data/raw/inat/<folder>, 'own' = data/raw/own/<folder>):
+# mimosa,Lajjalu (Mimosa pudica),inat,Mimosa pudica
+# amla,Amla (Phyllanthus emblica),own,amla
+# turmeric,Turmeric (Curcuma longa),own,turmeric
