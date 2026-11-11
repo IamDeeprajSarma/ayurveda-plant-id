@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tripura Ayurvedic Plant ID</title>
+<style>
+  :root { --bg:#f6f7f3; --card:#fff; --ink:#1f2a24; --muted:#5d6b62; --line:#dfe4dc; --green:#2f6b4a; --green-soft:#e4f0e8; --amber:#8a5a00; --amber-soft:#fff3d6; --red:#a12a2a; --red-soft:#fdeaea; }
+  @media (prefers-color-scheme: dark) { :root { --bg:#131814; --card:#1c231e; --ink:#e8efe9; --muted:#9aa89f; --line:#2c372f; --green:#6fc296; --green-soft:#1d3326; --amber:#f0c36a; --amber-soft:#3a2f12; --red:#f08a8a; --red-soft:#3a1c1c; } }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--bg); color:var(--ink); font:16px/1.5 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+  main { max-width: 640px; margin: 0 auto; padding: 16px; }
+  h1 { font-size: 1.35rem; margin: 8px 0 2px; }
+  h2 { font-size: 1.05rem; margin: 0 0 8px; }
+  .sub { color: var(--muted); margin: 0 0 12px; font-size: .92rem; }
+  .card { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:16px; margin:12px 0; }
+  .banner { background:var(--amber-soft); color:var(--amber); border-radius:10px; padding:10px 12px; font-size:.92rem; margin:10px 0; }
+  .badge { display:inline-block; font-size:.78rem; padding:2px 8px; border-radius:999px; background:var(--green-soft); color:var(--green); }
+  .badge.demo { background:var(--amber-soft); color:var(--amber); }
+  .row { display:flex; gap:10px; flex-wrap:wrap; }
+  button, .btn { appearance:none; border:1px solid var(--green); background:var(--green); color:#fff; border-radius:10px; padding:12px 16px; font:inherit; font-weight:600; cursor:pointer; min-height:48px; }
+  
+  button.secondary, .btn.secondary { background:transparent; color:var(--green); }
+  button:disabled { opacity:.5; cursor:default; }
+  input[type=file] { display:none; }
+  #preview { display:none; width:100%; max-height:320px; object-fit:contain; border-radius:10px; margin:12px 0 4px; background:var(--green-soft); }
+  .tips { color:var(--muted); font-size:.9rem; margin:10px 0 0; padding-left:18px; }
+  .err { background:var(--red-soft); color:var(--red); border-radius:10px; padding:10px 12px; margin:10px 0; }
+  .bar { height:10px; border-radius:6px; background:var(--green-soft); overflow:hidden; margin:6px 0 2px; }
+  .bar > i { display:block; height:100%; background:var(--green); }
+  .cand { display:flex; justify-content:space-between; align-items:center; gap:10px; padding:10px 0; border-top:1px solid var(--line); }
+  .cand:first-of-type { border-top:0; }
+  .cand .name { font-weight:600; } .cand .pct { color:var(--muted); font-variant-numeric:tabular-nums; }
+  .link { background:none; border:0; color:var(--green); padding:6px 0; min-height:0; text-decoration:underline; font-weight:600; }
+  .big { font-size:1.25rem; font-weight:700; margin:0; }
+  .notsure { background:var(--amber-soft); color:var(--amber); border-radius:10px; padding:10px 12px; margin-bottom:10px; font-weight:600; }
+  dl { margin:0; } dt { font-weight:700; margin-top:10px; font-size:.9rem; color:var(--muted); } dd { margin:2px 0 0; }
+  select { font:inherit; padding:10px; border-radius:10px; border:1px solid var(--line); background:var(--card); color:var(--ink); max-width:100%; min-height:44px; }
+  .spin { display:inline-block; width:16px; height:16px; border:3px solid #ffffff66; border-top-color:#fff; border-radius:50%; animation:s 0.8s linear infinite; vertical-align:-3px; margin-right:6px; }
+  @keyframes s { to { transform: rotate(360deg); } }
+  label.chk { display:flex; gap:8px; align-items:center; margin:12px 0 4px; color:var(--muted); font-size:.92rem; }
+  footer { color:var(--muted); font-size:.82rem; margin:20px 0; }
+</style>
+</head>
+<body>
+<main>
+  <h1>Tripura Ayurvedic Plant ID <span id="mode" class="badge" hidden></span></h1>
+  <p class="sub">Take or upload a photo of a leaf or small branch to see the closest matches.</p>
+  <div class="banner"><strong>For learning only.</strong> Never eat or use a plant based on this app.</div>
+
+  <section class="card" id="capture">
+    <h2>1. Add a photo</h2>
+    <div class="row">
+      <label class="btn" for="cam">Take photo</label>
+      <label class="btn secondary" for="gal">Upload from gallery</label>
+    </div>
+    <input id="cam" type="file" accept="image/*" capture="environment">
+    <input id="gal" type="file" accept="image/*">
+    <img id="preview" alt="Preview of the chosen photo">
+    <ul class="tips">
+      <li>One leaf or a small branch, filling about half the frame.</li>
+      <li>Good light and a plain background work best.</li>
+    </ul>
+    <label class="chk"><input type="checkbox" id="share"> Share my location with this photo (optional)</label>
+    <p class="sub" style="margin:2px 0 10px">Photos and approximate location may be saved to improve the app.</p>
+    <button id="go" disabled>Identify plant</button>
+    <div id="error" class="err" hidden></div>
+  </section>
+
+  <section class="card" id="result" hidden></section>
+  <section class="card" id="detail" hidden></section>
+  <footer>Prototype built for a final-year project. The model knows a limited set of species and will always give its closest guess, even for plants outside that set.</footer>
+</main>
+<script>
+const $ = (id) => document.getElementById(id);
+let chosen = null, lastRequest = null, allPlants = [];
+
+function el(tag, props = {}, ...kids) {
+  const n = document.createElement(tag);
+  for (const [k, v] of Object.entries(props)) { if (k === 'class') n.className = v; else if (k.startsWith('on')) n.addEventListener(k.slice(2), v); else n.setAttribute(k, v); }
+  for (const kid of kids) n.append(kid);
+  return n;
+}
+function showError(msg) { const e = $('error'); e.textContent = msg; e.hidden = !msg; }
+
+async function shrink(file, maxSide = 1024, q = 0.85) {
+  try {
+    let bmp;
+    try { bmp = await createImageBitmap(file, { imageOrientation: 'from-image' }); }
+    catch (_) { bmp = await createImageBitmap(file); }
+    const s = Math.min(1, maxSide / Math.max(bmp.width, bmp.height));
+    const c = document.createElement('canvas');
+    c.width = Math.round(bmp.width * s); c.height = Math.round(bmp.height * s);
+    c.getContext('2d').drawImage(bmp, 0, 0, c.width, c.height);
+    const blob = await new Promise((r) => c.toBlob(r, 'image/jpeg', q));
+    return blob || file;
+  } catch (_) { return file; }   // fall back to the original file
+}
+function getLocation() {
+  return new Promise((resolve) => {
+    if (!navigator.geolocation) return resolve(null);
+    navigator.geolocation.getCurrentPosition((p) => resolve(p.coords), () => resolve(null), { timeout: 4000 });
+  });
+}
+
+function onPick(e) {
+  const f = e.target.files[0]; if (!f) return;
+  chosen = f; showError('');
+  $('preview').src = URL.createObjectURL(f); $('preview').style.display = 'block';
+  $('go').disabled = false; $('result').hidden = true; $('detail').hidden = true;
+}
+$('cam').addEventListener('change', onPick);
+$('gal').addEventListener('change', onPick);
+
+$('go').addEventListener('click', async () => {
+  if (!chosen) return;
+  const btn = $('go'); btn.disabled = true; showError('');
+  btn.replaceChildren(el('span', { class: 'spin' }), 'Identifying...');
+  try {
+    const blob = await shrink(chosen);
+    const fd = new FormData(); fd.append('image', blob, 'photo.jpg');
+    if ($('share').checked) { const c = await getLocation(); if (c) { fd.append('lat', c.latitude); fd.append('lng', c.longitude); } }
+    const res = await fetch('/api/predict', { method: 'POST', body: fd });
+    const data = await res.json().catch(() => ({}));
+    if (!res.ok) throw new Error(data.error || 'Something went wrong. Please try again.');
+    lastRequest = data; renderResult(data);
+  } catch (err) {
+    showError(err.message && err.message !== 'Failed to fetch' ? err.message : 'Could not reach the server. Check your connection and try again.');
+  } finally { btn.disabled = false; btn.textContent = 'Identify plant'; }
+});
+
+const pct = (c) => Math.round(c * 100) + '%';
+
+function renderResult(d) {
+  const box = $('result'); box.replaceChildren(); box.hidden = false; $('detail').hidden = true;
+  box.append(el('h2', {}, '2. Result'));
+  const [top, ...rest] = d.predictions;
+  if (d.status === 'confident') {
+    box.append(el('p', { class: 'big' }, top.name), el('div', { class: 'sub' }, `Confidence ${pct(top.confidence)}`),
+      el('div', { class: 'bar' }, el('i', { style: `width:${pct(top.confidence)}` })),
+      el('button', { class: 'link', onclick: () => showDetail(top.species_id) }, 'See plant details'));
+    box.append(el('h2', { style: 'margin-top:14px' }, 'Other possibilities'));
+    rest.forEach((p) => box.append(candRow(p)));
+  } else {
+    box.append(el('div', { class: 'notsure' }, "We're not sure about this one."),
+      el('p', { class: 'sub' }, 'The best guesses are below, but none is confident enough to rely on. Try another photo: one leaf, good light, plain background.'));
+    d.predictions.forEach((p) => box.append(candRow(p)));
+  }
+  box.append(feedbackBlock(d.request_id));
+  box.scrollIntoView({ behavior: 'smooth' });
+}
+function candRow(p) {
+  return el('div', { class: 'cand' }, el('div', {}, el('div', { class: 'name' }, p.name),
+    el('button', { class: 'link', onclick: () => showDetail(p.species_id) }, 'Details')), el('div', { class: 'pct' }, pct(p.confidence)));
+}
+
+async function showDetail(id) {
+  const box = $('detail'); box.hidden = false; box.replaceChildren(el('h2', {}, 'Loading...'));
+  try {
+    const r = await (await fetch('/api/plants/' + encodeURIComponent(id))).json();
+    box.replaceChildren(el('h2', {}, r.name));
+    const dl = el('dl'); const add = (k, v) => { if (v && v.length) { dl.append(el('dt', {}, k), el('dd', {}, Array.isArray(v) ? v.join(', ') : v)); } };
+    add('Scientific name', r.scientific_name); add('Family', r.family); add('Common names', r.common_names); add('Local names', r.local_names);
+    add('Parts used', r.parts_used);
+    if (r.traditional_uses && r.traditional_uses.length) { add('Traditional uses', r.traditional_uses); } else { add('Traditional uses', r.uses_note || 'Not available yet.'); }
+    add('Cautions', r.cautions); add('Can be confused with', r.lookalikes); add('Sources', r.sources);
+    box.append(dl, el('p', { class: 'sub', style: 'margin-top:12px' }, 'Traditional uses are reported in ethnobotany sources, not clinical claims.'));
+    box.scrollIntoView({ behavior: 'smooth' });
+  } catch (_) { box.replaceChildren(el('div', { class: 'err' }, 'Could not load plant details.')); }
+}
+
+function feedbackBlock(requestId) {
+  const wrap = el('div', { style: 'margin-top:16px;border-top:1px solid var(--line);padding-top:12px' }, el('strong', {}, 'Was this correct?'));
+  const row = el('div', { class: 'row', style: 'margin-top:8px' }); const msg = el('div', { class: 'sub' });
+  const send = async (is_correct, sid) => {
+    try {
+      const r = await fetch('/api/feedback', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ request_id: requestId, is_correct, correct_species_id: sid || null }) });
+      if (!r.ok) throw new Error();
+      row.replaceChildren(); msg.textContent = 'Thank you, your feedback was saved.';
+    } catch (_) { msg.textContent = 'Could not send feedback. Please try again.'; }
+  };
+  const no = async () => {
+    if (!allPlants.length) { try { allPlants = await (await fetch('/api/plants/')).json(); } catch (_) {} }
+    const sel = el('select', {}, el('option', { value: '' }, 'Choose the correct plant...'));
+    allPlants.forEach((p) => sel.append(el('option', { value: p.species_id }, p.name)));
+    sel.append(el('option', { value: '__none__' }, 'Not in the list'));
+    sel.addEventListener('change', () => { if (sel.value) send(false, sel.value === '__none__' ? null : sel.value); });
+    row.replaceChildren(sel);
+  };
+  row.append(el('button', { class: 'secondary', onclick: () => send(true) }, 'Yes'), el('button', { class: 'secondary', onclick: no }, 'No'));
+  wrap.append(row, msg); return wrap;
+}
+
+fetch('/api/health').then((r) => r.json()).then((h) => {
+  const m = $('mode'); m.hidden = false;
+  if (h.predictor === 'dummy') { m.textContent = 'Demo mode: placeholder answers'; m.classList.add('demo'); } else { m.textContent = `Model: ${h.classes} species`; }
+}).catch(() => {});
+</script>
+</body>
+</html>

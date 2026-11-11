@@ -8,12 +8,16 @@ Design choices (explain these in the report):
   and drop a few frames at every block edge. This stops adjacent frames leaking across splits.
   LIMITATION: MED117 has only 2-3 leaves per species, so the same physical leaf can still appear
   in train and test. MED117 test accuracy is therefore optimistic; trust the FIELD test set.
+* Photos from every other source are split by GROUP, never by single image: images that share an id in the
+  filename (same observation / same plant) or are near-duplicates by perceptual hash (--max-ham) always stay
+  in the same split. Run ml/audit_leakage.py afterwards to double-check across sources.
 * Classes are capped (default 400 train images) to limit imbalance. Real photos from the other
   sources are kept first; MED117 frames fill the remaining quota by even striding.
 * Field photos in data/field_test/ are never used for training. This script only reports them.
 * A manifest.csv records the split of every image (useful for auditing leakage).
 """
 import argparse, csv, os, random, re, shutil, sys
+import numpy as np
 from collections import defaultdict
 from PIL import Image, ImageOps
 
@@ -40,7 +44,9 @@ def frame_key(name):
 
 def resolve(raw, source, match):
     base = os.path.join(raw, source)
-    hits = [d for d in sorted(os.listdir(base)) if os.path.isdir(os.path.join(base, d)) and match.lower() in d.lower()]
+    dirs = [d for d in sorted(os.listdir(base)) if os.path.isdir(os.path.join(base, d))]
+    exact = [d for d in dirs if d.lower() == match.lower()]
+    hits = exact if len(exact) == 1 else [d for d in dirs if match.lower() in d.lower()]
     if len(hits) != 1:
         sys.exit(f"[map error] source={source!r} folder_match={match!r} matched {len(hits)} folders: {hits}")
     return os.path.join(base, hits[0])
@@ -55,6 +61,84 @@ def split_ratio(n, rng, ratios=(0.7, 0.15, 0.15)):
     n_val = max(1, round(n * ratios[1])) if n >= 3 else 0
     n_test = max(1, round(n * ratios[2])) if n >= 3 else 0
     return idx[n_val + n_test:], idx[:n_val], idx[n_val:n_val + n_test]
+
+def dhash(path, size=8):
+    """64-bit perceptual 'difference hash': survives resizing/re-compression, so near-identical pictures match."""
+    with Image.open(path) as im:
+        im = ImageOps.exif_transpose(im).convert("L").resize((size + 1, size), Image.LANCZOS)
+    px = np.asarray(im, dtype=np.int16)
+    return np.packbits((px[:, 1:] > px[:, :-1]).flatten()).view(np.uint64)[0]
+
+_POP = np.array([bin(i).count("1") for i in range(256)], dtype=np.uint8)
+
+def hamming_to_all(h, hs):
+    """Bit distance between hash h and every hash in the uint64 array hs."""
+    x = np.ascontiguousarray(np.bitwise_xor(hs, h))
+    return _POP[x.view(np.uint8).reshape(-1, 8)].sum(axis=1)
+
+def id_key(name):
+    """Same key = same physical plant / observation. Add your own patterns if your sources name files differently."""
+    m = re.match(r"^(\d{5,})_", name)            # iNaturalist-style  <observation_id>_<n>.jpg
+    if m: return "obs" + m.group(1)
+    m = re.search(r"_p(\d+)_", name)             # own photos         <class>_p<plant>_<n>.jpg
+    if m: return "plant" + m.group(1)
+    return None
+
+def group_split(paths, rng, max_ham, dup_ham=2, ratios=(0.7, 0.15, 0.15)):
+    """paths = every image of ONE class, pooled from all sources. Returns (split dict, number of copies dropped).
+    1) Near-identical copies (same photo in two datasets, re-saved, resized) are dropped: only one is kept.
+    2) Images that share an id in the filename (same observation / plant) or are near-duplicates (<= max_ham bits)
+       form a group. Whole GROUPS go to train/val/test, so one plant or burst of shots never straddles a boundary."""
+    out = {"train": [], "val": [], "test": []}
+    if not paths:
+        return out, 0
+    hs_all = np.array([dhash(p) for p in paths], dtype=np.uint64)
+    keep = []
+    for i in range(len(paths)):
+        if keep and (hamming_to_all(hs_all[i], hs_all[keep]) <= dup_ham).any():
+            continue
+        keep.append(i)
+    dropped = len(paths) - len(keep)
+    paths = [paths[i] for i in keep]; hs = hs_all[keep]; n = len(paths)
+
+    parent = list(range(n))
+    def find(i):
+        while parent[i] != i:
+            parent[i] = parent[parent[i]]; i = parent[i]
+        return i
+    def union(i, j):
+        parent[find(i)] = find(j)
+    first = {}
+    for i, p in enumerate(paths):
+        k = id_key(os.path.basename(p))
+        if k is None: continue
+        if k in first: union(i, first[k])
+        else: first[k] = i
+    for i in range(n - 1):
+        for j in np.nonzero(hamming_to_all(hs[i], hs[i + 1:]) <= max_ham)[0]:
+            union(i, i + 1 + int(j))
+    groups = defaultdict(list)
+    for i in range(n):
+        groups[find(i)].append(paths[i])
+    glist = list(groups.values())
+    if len(glist) < 3:                            # too few independent groups to hold anything out
+        out["train"] = list(paths)
+        return out, dropped
+    rng.shuffle(glist)
+    glist.sort(key=len, reverse=True)             # stable: big groups first, ties stay shuffled
+    target = {"train": ratios[0] * n, "val": ratios[1] * n, "test": ratios[2] * n}
+    got = {"train": 0, "val": 0, "test": 0}
+    parts = {"train": [], "val": [], "test": []}
+    for g in glist:
+        sp = max(target, key=lambda k: target[k] - got[k])
+        parts[sp].append(g); got[sp] += len(g)
+    for sp in ("val", "test"):                    # never leave val/test empty
+        if not parts[sp] and len(parts["train"]) > 1:
+            small = min(parts["train"], key=len)
+            parts["train"].remove(small); parts[sp].append(small)
+    for sp in parts:
+        out[sp] = [f for g in parts[sp] for f in g]
+    return out, dropped
 
 def plant_split(files, rng):
     """Our own photos are named <class>_p<plant>_<n>.jpg. If there are >= 3 plants, give one whole plant
@@ -96,6 +180,7 @@ def main():
     ap.add_argument("--out", default="data/processed"); ap.add_argument("--field", default="data/field_test")
     ap.add_argument("--cap-train", type=int, default=400); ap.add_argument("--cap-eval", type=int, default=60)
     ap.add_argument("--block", type=int, default=40); ap.add_argument("--edge", type=int, default=5)
+    ap.add_argument("--max-ham", type=int, default=6, help="dHash bit distance <= this means near-duplicate")
     ap.add_argument("--seed", type=int, default=42); ap.add_argument("--max-side", type=int, default=512)
     a = ap.parse_args()
     rng = random.Random(a.seed)
@@ -117,6 +202,7 @@ def main():
     for cid, entries in classes.items():
         real = {"train": [], "val": [], "test": []}   # (srcpath, source)
         video = {"train": [], "val": [], "test": []}
+        pooled = []                                   # (path, source) of every ordinary source for this class
         for e in entries:
             if e["source"] == "own":
                 try:
@@ -136,9 +222,14 @@ def main():
                     for s in by_plant:
                         real[s] += [(os.path.join(folder, f), e["source"]) for f in by_plant[s]]
                 else:
-                    tr, va, te = split_ratio(len(files), rng)
-                    for s, ix in (("train", tr), ("val", va), ("test", te)):
-                        real[s] += [(os.path.join(folder, files[i]), e["source"]) for i in ix]
+                    pooled += [(os.path.join(folder, f), e["source"]) for f in files]
+        if pooled:
+            parts, dropped = group_split([p for p, _ in pooled], rng, a.max_ham)
+            src_of = dict(pooled)
+            for s in parts:
+                real[s] += [(p, src_of[p]) for p in parts[s]]
+            if dropped:
+                print(f"[dedup] {cid}: dropped {dropped} near-identical copies (same photo in several sources)")
         if not any(real[s] or video[s] for s in real):
             print(f"[skip] {cid}: no images found, class left out"); continue
         counts = {}

@@ -1,0 +1,579 @@
+[
+ {
+  "species_id": "tulsi",
+  "scientific_name": "Ocimum tenuiflorum",
+  "family": "Lamiaceae",
+  "common_names": [
+   "Tulsi",
+   "Holy basil"
+  ],
+  "local_names": [],
+  "parts_used": [],
+  "traditional_uses": [],
+  "cautions": [
+   "Do not use any plant medicinally without advice from a qualified practitioner."
+  ],
+  "lookalikes": [
+   "Ocimum gratissimum"
+  ],
+  "sources": [],
+  "uses_note": "Traditional uses are being compiled from published Tripura ethnobotany sources."
+ },
+ {
+  "species_id": "neem",
+  "scientific_name": "Azadirachta indica",
+  "family": "Meliaceae",
+  "common_names": [
+   "Neem"
+  ],
+  "local_names": [],
+  "parts_used": [],
+  "traditional_uses": [],
+  "cautions": [
+   "Do not use any plant medicinally without advice from a qualified practitioner."
+  ],
+  "lookalikes": [],
+  "sources": [],
+  "uses_note": "Traditional uses are being compiled from published Tripura ethnobotany sources."
+ },
+ {
+  "species_id": "centella",
+  "scientific_name": "Centella asiatica",
+  "family": "Apiaceae",
+  "common_names": [
+   "Thankuni",
+   "Asiatic pennywort"
+  ],
+  "local_names": [],
+  "parts_used": [],
+  "traditional_uses": [],
+  "cautions": [
+   "Do not use any plant medicinally without advice from a qualified practitioner."
+  ],
+  "lookalikes": [],
+  "sources": [],
+  "uses_note": "Traditional uses are being compiled from published Tripura ethnobotany sources."
+ },
+ {
+  "species_id": "eclipta",
+  "scientific_name": "Eclipta prostrata",
+  "family": "Asteraceae",
+  "common_names": [
+   "Bhringaraj",
+   "False daisy"
+  ],
+  "local_names": [],
+  "parts_used": [],
+  "traditional_uses": [],
+  "cautions": [
+   "Do not use any plant medicinally without advice from a qualified practitioner."
+  ],
+  "lookalikes": [
+   "Tridax procumbens"
+  ],
+  "sources": [],
+  "uses_note": "Traditional uses are being compiled from published Tripura ethnobotany sources."
+ },
+ {
+  "species_id": "mentha",
+  "scientific_name": "Mentha spp.",
+  "family": "Lamiaceae",
+  "common_names": [
+   "Mint"
+  ],
+  "local_names": [],
+  "parts_used": [],
+  "traditional_uses": [],
+  "cautions": [
+   "Do not use any plant medicinally without advice from a qualified practitioner."
+  ],
+  "lookalikes": [],
+  "sources": [],
+  "uses_note": "Traditional uses are being compiled from published Tripura ethnobotany sources."
+ },
+ {
+  "species_id": "jamun",
+  "scientific_name": "Syzygium cumini",
+  "family": "Myrtaceae",
+  "common_names": [
+   "Jamun",
+   "Malabar plum"
+  ],
+  "local_names": [],
+  "parts_used": [],
+  "traditional_uses": [],
+  "cautions": [
+   "Do not use any plant medicinally without advice from a qualified practitioner."
+  ],
+  "lookalikes": [],
+  "sources": [],
+  "uses_note": "Traditional uses are being compiled from published Tripura ethnobotany sources."
+ },
+ {
+  "species_id": "aloe_vera",
+  "scientific_name": "Aloe vera",
+  "family": "Asphodelaceae",
+  "common_names": [
+   "Aloe vera"
+  ],
+  "local_names": [],
+  "parts_used": [],
+  "traditional_uses": [],
+  "cautions": [
+   "Do not use any plant medicinally without advice from a qualified practitioner."
+  ],
+  "lookalikes": [],
+  "sources": [],
+  "uses_note": "Traditional uses are being compiled from published Tripura ethnobotany sources."
+ },
+ {
+  "species_id": "justicia",
+  "scientific_name": "Justicia adhatoda",
+  "family": "Acanthaceae",
+  "common_names": [
+   "Vasaka",
+   "Malabar nut"
+  ],
+  "local_names": [],
+  "parts_used": [],
+  "traditional_uses": [],
+  "cautions": [
+   "Do not use any plant medicinally without advice from a qualified practitioner."
+  ],
+  "lookalikes": [],
+  "sources": [],
+  "uses_note": "Traditional uses are being compiled from published Tripura ethnobotany sources."
+ },
+ {
+  "species_id": "andrographis",
+  "scientific_name": "Andrographis paniculata",
+  "family": "Acanthaceae",
+  "common_names": [
+   "Kalmegh",
+   "Green chirayta"
+  ],
+  "local_names": [],
+  "parts_used": [],
+  "traditional_uses": [],
+  "cautions": [
+   "Do not use any plant medicinally without advice from a qualified practitioner."
+  ],
+  "lookalikes": [],
+  "sources": [],
+  "uses_note": "Traditional uses are being compiled from published Tripura ethnobotany sources."
+ },
+ {
+  "species_id": "aegle",
+  "scientific_name": "Aegle marmelos",
+  "family": "Rutaceae",
+  "common_names": [
+   "Bael",
+   "Wood apple"
+  ],
+  "local_names": [],
+  "parts_used": [],
+  "traditional_uses": [],
+  "cautions": [
+   "Do not use any plant medicinally without advice from a qualified practitioner."
+  ],
+  "lookalikes": [],
+  "sources": [],
+  "uses_note": "Traditional uses are being compiled from published Tripura ethnobotany sources."
+ },
+ {
+  "species_id": "kalanchoe",
+  "scientific_name": "Kalanchoe pinnata",
+  "family": "Crassulaceae",
+  "common_names": [
+   "Patharkuchi",
+   "Miracle leaf"
+  ],
+  "local_names": [],
+  "parts_used": [],
+  "traditional_uses": [],
+  "cautions": [
+   "Do not use any plant medicinally without advice from a qualified practitioner."
+  ],
+  "lookalikes": [],
+  "sources": [],
+  "uses_note": "Traditional uses are being compiled from published Tripura ethnobotany sources."
+ },
+ {
+  "species_id": "boerhavia",
+  "scientific_name": "Boerhavia diffusa",
+  "family": "Nyctaginaceae",
+  "common_names": [
+   "Punarnava",
+   "Red spiderling"
+  ],
+  "local_names": [],
+  "parts_used": [],
+  "traditional_uses": [],
+  "cautions": [
+   "Do not use any plant medicinally without advice from a qualified practitioner."
+  ],
+  "lookalikes": [],
+  "sources": [],
+  "uses_note": "Traditional uses are being compiled from published Tripura ethnobotany sources."
+ },
+ {
+  "species_id": "hibiscus",
+  "scientific_name": "Hibiscus rosa-sinensis",
+  "family": "Malvaceae",
+  "common_names": [
+   "Hibiscus",
+   "Joba"
+  ],
+  "local_names": [],
+  "parts_used": [],
+  "traditional_uses": [],
+  "cautions": [
+   "Do not use any plant medicinally without advice from a qualified practitioner."
+  ],
+  "lookalikes": [],
+  "sources": [],
+  "uses_note": "Traditional uses are being compiled from published Tripura ethnobotany sources."
+ },
+ {
+  "species_id": "catharanthus",
+  "scientific_name": "Catharanthus roseus",
+  "family": "Apocynaceae",
+  "common_names": [
+   "Nayantara",
+   "Madagascar periwinkle"
+  ],
+  "local_names": [],
+  "parts_used": [],
+  "traditional_uses": [],
+  "cautions": [
+   "Do not use any plant medicinally without advice from a qualified practitioner."
+  ],
+  "lookalikes": [],
+  "sources": [],
+  "uses_note": "Traditional uses are being compiled from published Tripura ethnobotany sources."
+ },
+ {
+  "species_id": "houttuynia",
+  "scientific_name": "Houttuynia cordata",
+  "family": "Saururaceae",
+  "common_names": [
+   "Fish mint"
+  ],
+  "local_names": [],
+  "parts_used": [],
+  "traditional_uses": [],
+  "cautions": [
+   "Do not use any plant medicinally without advice from a qualified practitioner."
+  ],
+  "lookalikes": [],
+  "sources": [],
+  "uses_note": "Traditional uses are being compiled from published Tripura ethnobotany sources."
+ },
+ {
+  "species_id": "clitoria",
+  "scientific_name": "Clitoria ternatea",
+  "family": "Fabaceae",
+  "common_names": [
+   "Aparajita",
+   "Asian pigeon wings"
+  ],
+  "local_names": [],
+  "parts_used": [],
+  "traditional_uses": [],
+  "cautions": [
+   "Do not use any plant medicinally without advice from a qualified practitioner."
+  ],
+  "lookalikes": [],
+  "sources": [],
+  "uses_note": "Traditional uses are being compiled from published Tripura ethnobotany sources."
+ },
+ {
+  "species_id": "hygrophila",
+  "scientific_name": "Hygrophila auriculata",
+  "family": "Acanthaceae",
+  "common_names": [
+   "Swamp weed"
+  ],
+  "local_names": [],
+  "parts_used": [],
+  "traditional_uses": [],
+  "cautions": [
+   "Do not use any plant medicinally without advice from a qualified practitioner."
+  ],
+  "lookalikes": [],
+  "sources": [],
+  "uses_note": "Traditional uses are being compiled from published Tripura ethnobotany sources."
+ },
+ {
+  "species_id": "leucas",
+  "scientific_name": "Leucas aspera",
+  "family": "Lamiaceae",
+  "common_names": [
+   "Dronapushpi",
+   "Thumba"
+  ],
+  "local_names": [],
+  "parts_used": [],
+  "traditional_uses": [],
+  "cautions": [
+   "Do not use any plant medicinally without advice from a qualified practitioner."
+  ],
+  "lookalikes": [],
+  "sources": [],
+  "uses_note": "Traditional uses are being compiled from published Tripura ethnobotany sources."
+ },
+ {
+  "species_id": "guava",
+  "scientific_name": "Psidium guajava",
+  "family": "Myrtaceae",
+  "common_names": [
+   "Guava"
+  ],
+  "local_names": [],
+  "parts_used": [],
+  "traditional_uses": [],
+  "cautions": [
+   "Do not use any plant medicinally without advice from a qualified practitioner."
+  ],
+  "lookalikes": [],
+  "sources": [],
+  "uses_note": "Traditional uses are being compiled from published Tripura ethnobotany sources."
+ },
+ {
+  "species_id": "betel",
+  "scientific_name": "Piper betle",
+  "family": "Piperaceae",
+  "common_names": [
+   "Betel",
+   "Pan"
+  ],
+  "local_names": [],
+  "parts_used": [],
+  "traditional_uses": [],
+  "cautions": [
+   "Do not use any plant medicinally without advice from a qualified practitioner."
+  ],
+  "lookalikes": [
+   "Piper longum",
+   "Mikania cordata"
+  ],
+  "sources": [],
+  "uses_note": "Traditional uses are being compiled from published Tripura ethnobotany sources."
+ },
+ {
+  "species_id": "nyctanthes",
+  "scientific_name": "Nyctanthes arbor-tristis",
+  "family": "Oleaceae",
+  "common_names": [
+   "Shephali",
+   "Parijata"
+  ],
+  "local_names": [],
+  "parts_used": [],
+  "traditional_uses": [],
+  "cautions": [
+   "Do not use any plant medicinally without advice from a qualified practitioner."
+  ],
+  "lookalikes": [],
+  "sources": [],
+  "uses_note": "Traditional uses are being compiled from published Tripura ethnobotany sources."
+ },
+ {
+  "species_id": "bacopa",
+  "scientific_name": "Bacopa monnieri",
+  "family": "Plantaginaceae",
+  "common_names": [
+   "Brahmi",
+   "Water hyssop"
+  ],
+  "local_names": [],
+  "parts_used": [],
+  "traditional_uses": [],
+  "cautions": [
+   "Do not use any plant medicinally without advice from a qualified practitioner."
+  ],
+  "lookalikes": [],
+  "sources": [],
+  "uses_note": "Traditional uses are being compiled from published Tripura ethnobotany sources."
+ },
+ {
+  "species_id": "tinospora",
+  "scientific_name": "Tinospora cordifolia",
+  "family": "Menispermaceae",
+  "common_names": [
+   "Guduchi",
+   "Giloy"
+  ],
+  "local_names": [],
+  "parts_used": [],
+  "traditional_uses": [],
+  "cautions": [
+   "Do not use any plant medicinally without advice from a qualified practitioner."
+  ],
+  "lookalikes": [],
+  "sources": [],
+  "uses_note": "Traditional uses are being compiled from published Tripura ethnobotany sources."
+ },
+ {
+  "species_id": "vitex",
+  "scientific_name": "Vitex negundo",
+  "family": "Lamiaceae",
+  "common_names": [
+   "Nirgundi",
+   "Chinese chaste tree"
+  ],
+  "local_names": [],
+  "parts_used": [],
+  "traditional_uses": [],
+  "cautions": [
+   "Do not use any plant medicinally without advice from a qualified practitioner."
+  ],
+  "lookalikes": [],
+  "sources": [],
+  "uses_note": "Traditional uses are being compiled from published Tripura ethnobotany sources."
+ },
+ {
+  "species_id": "gymnema",
+  "scientific_name": "Gymnema sylvestre",
+  "family": "Apocynaceae",
+  "common_names": [
+   "Gurmar",
+   "Australian cowplant"
+  ],
+  "local_names": [],
+  "parts_used": [],
+  "traditional_uses": [],
+  "cautions": [
+   "Do not use any plant medicinally without advice from a qualified practitioner."
+  ],
+  "lookalikes": [],
+  "sources": [],
+  "uses_note": "Traditional uses are being compiled from published Tripura ethnobotany sources."
+ },
+ {
+  "species_id": "clerodendrum",
+  "scientific_name": "Clerodendrum colebrookianum",
+  "family": "Lamiaceae",
+  "common_names": [
+   "East Indian glory bower"
+  ],
+  "local_names": [],
+  "parts_used": [],
+  "traditional_uses": [],
+  "cautions": [
+   "Do not use any plant medicinally without advice from a qualified practitioner."
+  ],
+  "lookalikes": [],
+  "sources": [],
+  "uses_note": "Traditional uses are being compiled from published Tripura ethnobotany sources."
+ },
+ {
+  "species_id": "haritaki",
+  "scientific_name": "Terminalia chebula",
+  "family": "Combretaceae",
+  "common_names": [
+   "Haritaki",
+   "Chebulic myrobalan"
+  ],
+  "local_names": [],
+  "parts_used": [],
+  "traditional_uses": [],
+  "cautions": [
+   "Do not use any plant medicinally without advice from a qualified practitioner."
+  ],
+  "lookalikes": [],
+  "sources": [],
+  "uses_note": "Traditional uses are being compiled from published Tripura ethnobotany sources."
+ },
+ {
+  "species_id": "eryngium",
+  "scientific_name": "Eryngium foetidum",
+  "family": "Apiaceae",
+  "common_names": [
+   "Culantro"
+  ],
+  "local_names": [],
+  "parts_used": [],
+  "traditional_uses": [],
+  "cautions": [
+   "Do not use any plant medicinally without advice from a qualified practitioner."
+  ],
+  "lookalikes": [],
+  "sources": [],
+  "uses_note": "Traditional uses are being compiled from published Tripura ethnobotany sources."
+ },
+ {
+  "species_id": "euphorbia",
+  "scientific_name": "Euphorbia neriifolia",
+  "family": "Euphorbiaceae",
+  "common_names": [
+   "Indian spurge tree"
+  ],
+  "local_names": [],
+  "parts_used": [],
+  "traditional_uses": [],
+  "cautions": [
+   "Do not use any plant medicinally without advice from a qualified practitioner.",
+   "The milky latex can irritate skin and eyes."
+  ],
+  "lookalikes": [],
+  "sources": [],
+  "uses_note": "Traditional uses are being compiled from published Tripura ethnobotany sources."
+ },
+ {
+  "species_id": "cissus",
+  "scientific_name": "Cissus quadrangularis",
+  "family": "Vitaceae",
+  "common_names": [
+   "Hadjod",
+   "Devil's backbone"
+  ],
+  "local_names": [],
+  "parts_used": [],
+  "traditional_uses": [],
+  "cautions": [
+   "Do not use any plant medicinally without advice from a qualified practitioner."
+  ],
+  "lookalikes": [],
+  "sources": [],
+  "uses_note": "Traditional uses are being compiled from published Tripura ethnobotany sources."
+ },
+ {
+  "species_id": "amla",
+  "scientific_name": "Phyllanthus emblica",
+  "family": "Phyllanthaceae",
+  "common_names": [
+   "Amla",
+   "Indian gooseberry"
+  ],
+  "local_names": [],
+  "parts_used": [],
+  "traditional_uses": [],
+  "cautions": [
+   "Do not use any plant medicinally without advice from a qualified practitioner."
+  ],
+  "lookalikes": [
+   "Phyllanthus niruri"
+  ],
+  "sources": [],
+  "uses_note": "Traditional uses are being compiled from published Tripura ethnobotany sources."
+ },
+ {
+  "species_id": "turmeric",
+  "scientific_name": "Curcuma longa",
+  "family": "Zingiberaceae",
+  "common_names": [
+   "Turmeric",
+   "Holud"
+  ],
+  "local_names": [],
+  "parts_used": [],
+  "traditional_uses": [],
+  "cautions": [
+   "Do not use any plant medicinally without advice from a qualified practitioner."
+  ],
+  "lookalikes": [],
+  "sources": [],
+  "uses_note": "Traditional uses are being compiled from published Tripura ethnobotany sources."
+ }
+]
